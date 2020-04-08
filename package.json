@@ -1,0 +1,53 @@
+{
+  "name": "electron-react-typescript-startkit",
+  "version": "1.0.0",
+  "description": "Simple Electron, React, Typescript start kit",
+  "private": true,
+  "homepage": "",
+  "browserslist": [
+    "last 4 versions"
+  ],
+  "main": "./src/main/index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
+    "prod": "cross-env NODE_ENV=production webpack --mode production --config webpack.build.config.js && electron --noDevServer .",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
+    "clean": "rimraf dist && rimraf release",
+    "pack": "npm run clean && npm run build && electron-builder --publish=never",
+    "release": "npm run clean && npm run build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/react": "^16.9.32",
+    "@types/react-dom": "^16.9.6",
+    "@types/styled-components": "^5.0.1",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "babili-webpack-plugin": "^0.1.2",
+    "cross-env": "^7.0.2",
+    "electron": "^8.2.0",
+    "electron-builder": "^22.4.1",
+    "electron-devtools-installer": "^2.2.4",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.1",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "build": {
+    "directories": {
+      "output": "release"
+    }
+  }
+}
