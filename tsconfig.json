@@ -7,6 +7,7 @@
       "dom",
       "es2017"
     ],
+    "rootDir": "./src/renderer",
     "module": "esnext",
     "moduleResolution": "node",
     "noUnusedLocals": true,
@@ -26,7 +27,6 @@
     "node_modules"
   ],
   "include": [
-    "**/*.ts",
-    "**/*.tsx"
+    "src/renderer"
   ]
 }
