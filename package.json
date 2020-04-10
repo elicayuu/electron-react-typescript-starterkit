@@ -18,6 +18,17 @@
     "release": "npm run clean && npm run build && electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.(ts|tsx)": [
+      "npm run lint",
+      "git add"
+    ]
+  },
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -48,6 +59,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.2",
     "rimraf": "^3.0.2",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
