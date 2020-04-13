@@ -8,6 +8,7 @@ release/
 dist/
 node_modules/
 *.compiled.*
+coverage/
 
 # Folder config file #
 ######################

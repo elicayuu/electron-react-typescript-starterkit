@@ -4,6 +4,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
+    'plugin:jest-dom/recommended',
     'standard',
   ],
   parserOptions: {
@@ -16,6 +18,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    jest: true,
   },
   settings: {
     react: {

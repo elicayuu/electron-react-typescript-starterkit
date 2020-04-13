@@ -1,2 +1,3 @@
 /src/main
 webpack*
+jest.setup.js
