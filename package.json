@@ -1,7 +1,7 @@
 {
-  "name": "electron-react-typescript-startkit",
+  "name": "electron-react-typescript-starterkit",
   "version": "1.0.0",
-  "description": "Simple Electron, React, Typescript start kit",
+  "description": "Simple Electron, React, Typescript starter kit",
   "private": true,
   "homepage": "",
   "browserslist": [
