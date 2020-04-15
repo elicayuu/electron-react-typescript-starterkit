@@ -18,7 +18,9 @@
     "coverage": "jest --coverage",
     "pack": "npm run clean && npm run build && electron-builder --publish=never",
     "release": "npm run clean && npm run build && electron-builder",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "husky": {
     "hooks": {
@@ -54,6 +56,12 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-docs": "^5.3.18",
+    "@storybook/addon-info": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
     "@types/jest": "^25.2.1",
@@ -84,6 +92,8 @@
     "husky": "^4.2.3",
     "jest": "^25.3.0",
     "lint-staged": "^10.1.2",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-is": "^16.13.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^25.3.1",
     "ts-loader": "^6.2.2",

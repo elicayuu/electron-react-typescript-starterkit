@@ -27,13 +27,16 @@ module.exports = {
   },
   rules: {
     'space-before-function-paren': [2, 'never'],
-    'eol-last': 0,
     'comma-dangle': [2, 'always-multiline'],
     'no-unused-vars': 0,
     'object-curly-spacing': [2, 'always'],
+    'react/prop-types': 0, // Use typescript to type check
     '@typescript-eslint/indent': 0, // Use StandardJS rule
     '@typescript-eslint/no-use-before-define': 0, // Hoist functions are good
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/indent': 0, // This is the job of StandardJS
+    '@typescript-eslint/explicit-function-return-type': [1, {
+      'allowExpressions': true,
+    }],
   }
 }
