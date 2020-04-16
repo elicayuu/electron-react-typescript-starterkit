@@ -5,6 +5,19 @@ const BabiliPlugin = require('babili-webpack-plugin')
 
 // Any directories you will be adding code/files into, need to be added to this array so webpack will pick them up
 const defaultInclude = path.resolve(__dirname, 'src', 'renderer')
+const tsconfig = require('./tsconfig.json')
+
+function parsePathsJson(paths) {
+  return Object.entries(paths).reduce((acc, [folderPath]) => {
+    folderPath = folderPath.replace(/[@/*]/g, "")
+    const propertyName = '@' + folderPath
+
+    if (acc[propertyName]) return acc
+
+    acc[propertyName] = path.resolve(__dirname, `src/${folderPath}`)
+    return acc
+  }, {})
+}
 
 module.exports = {
   entry: {
@@ -13,6 +26,9 @@ module.exports = {
   resolve: {
     // Look for modules in .ts(x) files first, then .js
     extensions: ['.js', 'jsx', '.ts', '.tsx'],
+    alias: {
+      ...parsePathsJson(tsconfig.compilerOptions.paths),
+    },
   },
   module: {
     rules: [

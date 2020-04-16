@@ -1,3 +1,4 @@
 /src/main
 webpack*
 jest.setup.js
+jest.config.js
