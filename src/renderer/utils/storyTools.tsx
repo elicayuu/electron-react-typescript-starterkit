@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { GlobalStyle } from './globalStyle'
+import { GlobalStyle } from '../globalStyle'
 
 export const storyGlobalStyle = (storyFn: () => React.ReactNode): React.ReactNode => (
   <StoryWrap>

@@ -1,6 +1,6 @@
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
-import { normalize } from 'polished'
+import styled from 'styled-components'
+import { GlobalStyle } from '../globalStyle'
 
 const App: React.FC = () => {
   return (
@@ -15,15 +15,11 @@ const App: React.FC = () => {
 
 export default App
 
-const GlobalStyle = createGlobalStyle`
-  ${normalize()}
-`
-
 const Title = styled.h1`
-  color: #f33;
+  color: var(--primary);
   font-weight: normal;
 `
 
 const Content = styled.div`
-  color: #393;
+  color: var(--secondary);
 `
