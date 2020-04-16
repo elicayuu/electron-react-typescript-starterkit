@@ -1,18 +1,17 @@
-const path = require('path')
 const tsconfig = require('./tsconfig.json')
 
 module.exports = {
   transform: {
-    ".(ts|tsx)": "ts-jest",
+    '.(ts|tsx)': 'ts-jest',
   },
-  testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+  testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   moduleFileExtensions: [
-    "ts",
-    "tsx",
-    "js",
+    'ts',
+    'tsx',
+    'js',
   ],
   setupFilesAfterEnv: [
-    "./jest.setup.js",
+    './jest.setup.js',
   ],
   moduleNameMapper: {
     ...parsePathsJson(tsconfig.compilerOptions.paths),
@@ -21,7 +20,7 @@ module.exports = {
 
 function parsePathsJson(paths) {
   return Object.entries(paths).reduce((acc, [folderPath]) => {
-    folderPath = folderPath.replace(/[@/*]/g, "")
+    folderPath = folderPath.replace(/[@/*]/g, '')
     const propertyName = `@${folderPath}/(.*)`
 
     if (acc[propertyName]) return acc

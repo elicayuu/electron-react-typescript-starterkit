@@ -9,7 +9,7 @@ const tsconfig = require('./tsconfig.json')
 
 function parsePathsJson(paths) {
   return Object.entries(paths).reduce((acc, [folderPath]) => {
-    folderPath = folderPath.replace(/[@/*]/g, "")
+    folderPath = folderPath.replace(/[@/*]/g, '')
     const propertyName = '@' + folderPath
 
     if (acc[propertyName]) return acc
@@ -51,8 +51,8 @@ module.exports = {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: [{ loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]' }],
         include: defaultInclude,
-      }
-    ]
+      },
+    ],
   },
   target: 'electron-renderer',
   plugins: [
@@ -69,5 +69,5 @@ module.exports = {
     children: false,
     chunks: false,
     modules: false,
-  }
+  },
 }

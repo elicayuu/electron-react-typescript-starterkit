@@ -9,7 +9,6 @@ module.exports = {
     'standard',
   ],
   parserOptions: {
-    project: './tsconfig.json',
     ecmaVersion:  2018,
     sourceType:  'module',
     ecmaFeatures: {
@@ -38,5 +37,15 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': [1, {
       'allowExpressions': true,
     }],
-  }
+  },
+  overrides: [
+    {
+      files: ['**/*.js', '**/*.jsx'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/no-var-requires': 0,
+        'no-var-requires': 0,
+      },
+    },
+  ],
 }

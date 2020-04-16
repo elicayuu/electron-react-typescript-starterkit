@@ -30,8 +30,8 @@ function createWindow() {
     height: 768,
     show: false,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   })
 
   // and load the index.html of the app.
@@ -42,13 +42,13 @@ function createWindow() {
       protocol: 'http:',
       host: 'localhost:8080',
       pathname: 'index.html',
-      slashes: true
+      slashes: true,
     })
   } else {
     indexPath = url.format({
       protocol: 'file:',
       pathname: path.join(__dirname, '..', '..', 'dist', 'index.html'),
-      slashes: true
+      slashes: true,
     })
   }
 
@@ -78,8 +78,8 @@ if (dev) {
   const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
   app.whenReady().then(() => {
     installExtension(REACT_DEVELOPER_TOOLS)
-      .catch((err) => console.log('An error occurred: ', err));
-  });
+      .catch((err) => console.log('An error occurred: ', err))
+  })
 }
 
 // Quit when all windows are closed.
