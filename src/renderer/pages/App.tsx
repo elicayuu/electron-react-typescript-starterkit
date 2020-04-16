@@ -1,17 +1,23 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+import { normalize } from 'polished'
 
 const App: React.FC = () => {
   return (
-    <div>
+    <>
+      <GlobalStyle/>
       <Title>Hello, Electron!</Title>
 
       <Content>I hope you enjoy using basic-electron-react-boilerplate to start your dev off right!</Content>
-    </div>
+    </>
   )
 }
 
 export default App
+
+const GlobalStyle = createGlobalStyle`
+  ${normalize()}
+`
 
 const Title = styled.h1`
   color: #f33;
