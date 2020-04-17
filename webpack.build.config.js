@@ -8,13 +8,14 @@ const defaultInclude = path.resolve(__dirname, 'src', 'renderer')
 const tsconfig = require('./tsconfig.json')
 
 function parsePathsJson(paths) {
-  return Object.entries(paths).reduce((acc, [folderPath]) => {
-    folderPath = folderPath.replace(/[@/*]/g, '')
-    const propertyName = '@' + folderPath
+  return Object.entries(paths).reduce((acc, [key, [value]]) => {
+    const newPath = value.replace(/\/\*/, '').split('/')
+    const propertyName = key.replace(/\/\*/, '')
 
     if (acc[propertyName]) return acc
 
-    acc[propertyName] = path.resolve(__dirname, `src/${folderPath}`)
+    acc[propertyName] = path.resolve(__dirname, ...newPath)
+
     return acc
   }, {})
 }
