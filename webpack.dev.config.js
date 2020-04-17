@@ -3,22 +3,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { spawn } = require('child_process')
 
+const { getWebpackAliasPaths } = require('./paths.config')
 // Any directories you will be adding code/files into, need to be added to this array so webpack will pick them up
 const defaultInclude = path.resolve(__dirname, 'src', 'renderer')
-const tsconfig = require('./tsconfig.json')
-
-function parsePathsJson(paths) {
-  return Object.entries(paths).reduce((acc, [key, [value]]) => {
-    const newPath = value.replace(/\/\*/, '').split('/')
-    const propertyName = key.replace(/\/\*/, '')
-
-    if (acc[propertyName]) return acc
-
-    acc[propertyName] = path.resolve(__dirname, ...newPath)
-
-    return acc
-  }, {})
-}
 
 module.exports = {
   entry: {
@@ -28,7 +15,7 @@ module.exports = {
     // Look for modules in .ts(x) files first, then .js
     extensions: ['.js', 'jsx', '.ts', '.tsx'],
     alias: {
-      ...parsePathsJson(tsconfig.compilerOptions.paths),
+      ...getWebpackAliasPaths(),
     },
   },
   module: {

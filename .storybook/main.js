@@ -1,4 +1,5 @@
 const path = require('path')
+const { getWebpackAliasPaths } = require('../paths.config')
 
 module.exports = {
   stories: ['../src/renderer/**/*.stories.tsx'],
@@ -13,6 +14,10 @@ module.exports = {
     },
   ],
   webpackFinal: async config => {
+    config.resolve.alias = {
+      ...getWebpackAliasPaths(),
+    }
+
     config.module.rules.push({
       test: /\.tsx?$/,
       include: path.resolve(__dirname, "../src"),

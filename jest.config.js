@@ -1,4 +1,4 @@
-const tsconfig = require('./tsconfig.json')
+const { getJestAliasPaths } = require('./paths.config')
 
 module.exports = {
   transform: {
@@ -14,19 +14,6 @@ module.exports = {
     './jest.setup.js',
   ],
   moduleNameMapper: {
-    ...parsePathsJson(tsconfig.compilerOptions.paths),
+    ...getJestAliasPaths(),
   },
-}
-
-function parsePathsJson(paths) {
-  return Object.entries(paths).reduce((acc, [key, [value]]) => {
-    const newPath = value.replace(/\/\*/, '')
-    const propertyName = `${key}/(.*)`
-
-    if (acc[propertyName]) return acc
-
-    acc[propertyName] = `<rootDir>/${newPath}/$1`
-    console.log(propertyName, `<rootDir>/${newPath}/$1`)
-    return acc
-  }, {})
 }
