@@ -3,7 +3,10 @@ import { normalize } from 'polished'
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
-  font-family: sans-serif;
+  
+  body {
+    font-family: sans-serif;
+  }
   
   :root {
     --primary: #00b8d8;
